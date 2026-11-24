@@ -1,0 +1,17 @@
+{
+  "name": "bugsplat",
+  "plugins": [
+    {
+      "name": "bugsplat",
+      "source": {
+        "source": "local",
+        "path": "./plugins/bugsplat"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

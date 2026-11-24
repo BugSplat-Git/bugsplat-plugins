@@ -1,0 +1,20 @@
+{
+  "name": "bugsplat",
+  "version": "0.1.0",
+  "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, and fix crashes from your BugSplat databases.",
+  "homepage": "https://docs.bugsplat.com/api-reference/mcp-server",
+  "repository": "https://github.com/BugSplat-Git/bugsplat-plugins",
+  "license": "MIT",
+  "keywords": [
+    "crash reporting",
+    "crashes",
+    "debugging",
+    "symbols",
+    "mcp"
+  ],
+  "author": {
+    "name": "BugSplat",
+    "email": "support@bugsplat.com"
+  },
+  "logo": "assets/icon.png"
+}
