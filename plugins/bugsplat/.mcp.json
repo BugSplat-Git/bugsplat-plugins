@@ -1,0 +1,6 @@
+{
+  "bugsplat": {
+    "type": "http",
+    "url": "https://api.bugsplat.com/mcp"
+  }
+}
