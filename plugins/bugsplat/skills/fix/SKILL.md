@@ -20,7 +20,7 @@ Skip groups that already link to a defect someone is working on unless the user 
 
 ## 2. Read the crash
 
-- Call `get-group` with a `pageSize` of 5 to see recent reports, then `get-report` for the newest one, and for one or two older ones if the stacks might differ.
+- Call `get-group` with a `pageSize` of 5 to see recent reports, then `get-report` for the newest one. A crash group shares the one frame it's grouped by, but its reports can reach that frame through different callers, so when the cause might depend on the caller, read one or two older reports too.
 - Read the exception, the crashing thread's frames, the custom attributes, and the user comments.
 - If the top frames show only a module and an offset (for example `MyApp+0x12b5`) instead of function names and line numbers, the symbols for that version are missing or don't match the build. Call `list-symbols` for the application and version, tell the user which files are missing, point them to https://docs.bugsplat.com/guides/working-with-symbol-files/upload-symbols-with-symbol-upload, and stop: guessing a fix from an unsymbolicated stack is not reliable.
 - The report's Crash Archive link downloads the zip the app uploaded (minidump, logs, other attachments). It expires 15 minutes after `get-report` returns. Download it only when the stack and attributes aren't enough, and only into a temporary directory outside the repository.
