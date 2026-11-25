@@ -29,7 +29,7 @@ How the dates work: with `startDate` and `endDate`, a group's `crashes` and `use
 - **Most crashes:** `startDate` at the start of the window, `sortBy` `crashes`.
 - **Most users affected:** the same call with `sortBy` `users`.
 - **Newly appeared:** `sortBy` `oldest` with `sortOrder` `desc`, which lists the latest first report first. Keep the groups whose `firstReport` is inside the window.
-- **Growing:** one call for the last 24 hours and one for the 24 hours before it, both sorted by `crashes`. Match the groups by `stackKeyId`. A group is growing when it has at least twice the crashes of the earlier window and at least five more, or when it has crashes now and had none before.
+- **Growing:** one call for the last 24 hours, sorted by `crashes`, and one for the 24 hours before it with `pageSize` 100, so the earlier list holds every group you need to compare against. Match the groups by `stackKeyId`. A group is growing when it has at least twice the crashes of the earlier window and at least five more. A group missing from the earlier list had no crashes then only if that list was complete, meaning the tool did not say there may be more. If the earlier list was cut off, page through it until you find the group, or report its growth as unknown; never treat a group you didn't find as zero.
 - **Regressions:** the groups whose status is `regression`. BugSplat sets that status when a group marked fixed crashes again in a newer version.
 
 Merge the results by `stackKeyId`. A group that shows up from several angles is a stronger candidate.
