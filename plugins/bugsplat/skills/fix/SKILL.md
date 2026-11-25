@@ -8,7 +8,7 @@ argument-hint: "[crash group id | crash id | BugSplat link | application and ver
 
 The user asked: $ARGUMENTS
 
-You have BugSplat's MCP tools (`list-databases`, `list-groups`, `get-group`, `list-reports`, `get-report`, `list-versions`, `list-symbols`, `create-defect`, `add-defect-link`, `set-group-status`). If they aren't available, tell the user to connect the server (`/mcp`, then sign in to BugSplat) and stop.
+You have BugSplat's MCP tools (`list-databases`, `list-groups`, `get-group`, `list-reports`, `get-report`, `list-versions`, `list-symbols`, `create-defect`, `add-defect-link`, `set-group-status`). If they aren't available, tell the user to connect the BugSplat server and sign in, with the steps for the client you are running in, and stop: in Claude Code, run `/mcp` and select BugSplat; in Codex, run `codex mcp login bugsplat`; in Cursor, open **Settings > Tools & MCP** and click **Connect** next to BugSplat.
 
 ## 1. Pick the crash group
 
