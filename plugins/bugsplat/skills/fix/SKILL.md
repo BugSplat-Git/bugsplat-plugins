@@ -14,7 +14,7 @@ You have BugSplat's MCP tools (`list-databases`, `list-groups`, `get-group`, `li
 
 - A crash group id, or a `app.bugsplat.com` link with a group: call `get-group` with that `stackKeyId`.
 - A crash id, or a link to one crash: call `get-report`, then `get-group` for its crash group.
-- An application and version, or nothing: find the database first. If `list-databases` shows more than one and the repository doesn't make the choice obvious, ask which one. Call `list-versions` to find the newest version of this application, then `list-groups` for that version with `status` `{"in": ["open", "regression"]}`, sorted by `users`. Show the top few groups (stack key, crashes, users, linked defect) and ask which to fix, unless the user asked you to pick.
+- An application and version, an application alone, or nothing: find the database first. If `list-databases` shows more than one and the repository doesn't make the choice obvious, ask which one. If the user named a version, use that version. Otherwise call `list-versions` to find the newest version of this application. Then call `list-groups` for that version with `status` `{"in": ["open", "regression"]}`, sorted by `users`. Show the top few groups (stack key, crashes, users, linked defect) and ask which to fix, unless the user asked you to pick.
 
 Skip groups that already link to a defect someone is working on unless the user picked that group.
 
