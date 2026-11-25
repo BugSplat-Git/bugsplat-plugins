@@ -1,7 +1,7 @@
 {
   "name": "bugsplat",
   "version": "0.1.0",
-  "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, and fix crashes from your BugSplat databases.",
+  "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, decide which crash to fix next, and fix crashes from your BugSplat databases.",
   "author": {
     "name": "BugSplat",
     "email": "support@bugsplat.com"

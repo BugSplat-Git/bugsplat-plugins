@@ -1,6 +1,6 @@
 ---
 name: fix
-description: Fix a crash reported to BugSplat. Picks a crash group (or takes one you name), reads its crash reports and call stack through the BugSplat MCP server, finds the code in this repository, fixes it, opens a pull request, and offers to mark the crash group fixed. Use when the user asks to fix a BugSplat crash, a crash group, or "what's crashing" in their app.
+description: Fix a crash reported to BugSplat. Picks a crash group (or takes one you name), reads its crash reports and call stack through the BugSplat MCP server, finds the code in this repository, fixes it, opens a pull request, and offers to mark the crash group fixed. Use when the user asks to fix a BugSplat crash or a crash group. To decide which crash to fix, use the triage skill.
 argument-hint: "[crash group id | crash id | BugSplat link | application and version]"
 ---
 

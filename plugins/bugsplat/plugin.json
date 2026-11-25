@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bugsplat",
   "version": "0.1.0",
-  "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, and fix crashes from your BugSplat databases.",
+  "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, decide which crash to fix next, and fix crashes from your BugSplat databases.",
   "homepage": "https://docs.bugsplat.com/api-reference/mcp-server",
   "repository": "https://github.com/BugSplat-Git/bugsplat-plugins",
   "license": "MIT",
@@ -23,7 +23,7 @@
       "interface": {
         "displayName": "BugSplat",
         "shortDescription": "Find and fix your app crashes",
-        "longDescription": "Read crash reports, crash groups, versions and symbol files from every BugSplat database your account can open, then fix the crash in your code. The fix skill picks a crash group, reads its call stack, finds the code, opens a pull request and offers to mark the group fixed. The integrate skill adds BugSplat crash reporting to an app, sets up symbol upload, and confirms a test crash arrived. You sign in with your BugSplat account; the plugin has the same access you have in the BugSplat web app. Filing defects requires an issue tracker connected to your BugSplat database.",
+        "longDescription": "Read crash reports, crash groups, versions and symbol files from every BugSplat database your account can open, then fix the crash in your code. The triage skill ranks an application's crash groups by crashes, affected users, how new they are and how fast they are growing, and recommends what to fix next. The fix skill picks a crash group, reads its call stack, finds the code, opens a pull request and offers to mark the group fixed. The integrate skill adds BugSplat crash reporting to an app, sets up symbol upload, and confirms a test crash arrived. You sign in with your BugSplat account; the plugin has the same access you have in the BugSplat web app. Filing defects requires an issue tracker connected to your BugSplat database.",
         "developerName": "BugSplat",
         "category": "Developer Tools",
         "capabilities": [
@@ -35,7 +35,7 @@
         "privacyPolicyURL": "https://www.bugsplat.com/privacy-policy/",
         "termsOfServiceURL": "https://www.bugsplat.com/terms-of-service/",
         "defaultPrompt": [
-          "Which crash groups affect the most users in my latest version?",
+          "Which crash should we fix next in my latest version?",
           "Fix the top crash in my newest release and open a pull request.",
           "Add BugSplat crash reporting to this app."
         ],
