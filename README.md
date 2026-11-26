@@ -7,6 +7,7 @@ The `bugsplat` plugin adds:
 - **BugSplat's hosted MCP server** at `https://api.bugsplat.com/mcp`. You sign in with your BugSplat account, and your agent can read crash reports, crash groups, versions and symbol files in every database your login can open, file crash groups as defects in your issue tracker, and mark them fixed. See [MCP Server](https://docs.bugsplat.com/api-reference/mcp-server).
 - **`/bugsplat:triage`** works out which crash to fix next. It ranks an application's crash groups by crashes, affected users, how recently they appeared and how fast they are growing, and gives the evidence for each.
 - **`/bugsplat:fix`** picks a crash group (or takes the one you name), reads its call stack, finds the code in your repository, fixes it, opens a pull request, and offers to mark the group fixed.
+- **`/bugsplat:symbols`** finds the symbol files a crash needs on your machine, uploads them with the [BugSplat CLI](https://github.com/BugSplat-Git/bugsplat-cli) (`npm install -g @bugsplat/cli`), and reprocesses the crash to confirm the call stack is readable.
 - **`/bugsplat:integrate`** adds BugSplat to an application: it picks the SDK for your platform, sets up symbol upload, and confirms a test crash arrived.
 
 ## Claude Code

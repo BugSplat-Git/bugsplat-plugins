@@ -37,7 +37,7 @@ Merge the results by `stackKeyId`. A group that shows up from several angles is 
 ## 3. Check what the numbers mean
 
 - **Crashes against users.** Hundreds of crashes from one or two users is often one machine crashing in a loop. Fewer crashes spread over many users usually matters more. If `users` is 0 or 1 for every group, the application probably doesn't send a user, so say that you can't rank by users.
-- **One group against the whole release.** `list-versions` gives a version's total crashes and its reports per day. If every group is rising together, more people are running the release; that is adoption, and no single group explains it.
+- **One group against the whole release.** `list-versions` gives a version's total crashes and its reports per day. If every group is rising together, the likelier cause is that more people are running the release, and no single group explains it. Say that this is a guess unless the version's own numbers show it.
 - **Look at the top candidates.** For up to five, call `get-group` with a `pageSize` of 3. Check which versions the recent reports come from, whether a defect is already linked, and what the group's comments and events say. Call `get-report` on one report only when you need the call stack to tell two candidates apart.
 - **Unreadable stack keys.** A stack key that is only a module and an offset, such as `MyApp+0x12b5`, means the symbols for that version are missing. Several different bugs can land in one such group, so its numbers are less reliable. Say so, and tell the user that uploading the version's symbol files comes first.
 - **Unprocessed reports.** `stackKeyId` -1 collects reports that have not been grouped yet, and is not a crash group. Mention that bucket only when it is large.
@@ -63,6 +63,6 @@ Answer with:
 
 ## 5. Offer the next step
 
-- Offer to fix the top group. If the fix skill is available, that is `/bugsplat:fix <stackKeyId>`.
+- Offer to fix the top group. If the fix skill is available, that is `/bugsplat:fix <stackKeyId>`; name the database too, so the fix starts in the database you triaged.
 - For a group with no linked defect, offer `create-defect`. Ask before each one; it creates an issue in the team's issue tracker.
 - Do not change a group's status as part of triage.
