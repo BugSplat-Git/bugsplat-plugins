@@ -2,7 +2,7 @@
 
 Connects your coding agent to [BugSplat](https://www.bugsplat.com) crash reporting. The plugin adds BugSplat's hosted MCP server and four skills.
 
-You sign in with your BugSplat account, and the agent has the access you have in the BugSplat web app: it reads crash reports, crash groups, versions and symbol files in every database your login can open, files crash groups as defects in your issue tracker, and marks them fixed.
+You sign in with your BugSplat account, and the agent has the access you have in the BugSplat web app: it reads crash reports, crash groups, versions and symbol files in every database your login can open, files crash groups as defects in your issue tracker, and marks them fixed. Filing defects needs an [issue tracker connected to your BugSplat database](https://docs.bugsplat.com/integrations/issue-trackers).
 
 ## Skills
 
