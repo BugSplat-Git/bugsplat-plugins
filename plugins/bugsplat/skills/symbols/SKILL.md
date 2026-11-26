@@ -19,7 +19,7 @@ This skill uses the BugSplat CLI, `bugsplat`, which reads symbol files on this m
 ## 2. Work out what is missing
 
 - From a crash id: read the report (`bugsplat reports get <id> -b <database>`). Note the application, the version, and the modules whose frames show only an offset, such as `MyApp+0x12b5`. Those modules have no matching symbols.
-- From an application and version: that is enough to continue.
+- From an application and version: pick a report to check the result against. `bugsplat reports list -b <database> --application <app> --version <version> --page-size 5` lists the newest ones; take one whose frames show only offsets. If the version has no reports yet, continue without one and skip step 5.
 - List what BugSplat already has: `bugsplat symbols list -b <database> --application <app> --version <version>`. Each file is listed with its debug id. A module can be on the list and still not match: a rebuild of the same version has a different debug id.
 
 ## 3. Find the files on this machine
@@ -43,6 +43,8 @@ When you find files by name only, tell the user you can't prove they are from th
 - Do not delete symbols as part of this skill.
 
 ## 5. Confirm it worked
+
+This step needs a crash report from step 2. Without one, tell the user the upload succeeded and that the next crash from this version will show whether the symbols match.
 
 - Ask before reprocessing: `bugsplat reports reprocess <id> -b <database>` asks BugSplat to process the crash again with the new symbols. Don't add `--force` unless the user asks for it.
 - Read the report again until its Processing line no longer says it is still processing.
