@@ -28,8 +28,10 @@ Ask for every value the guide lists before you change any code: the database nam
 
 Follow the platform page to add the SDK and initialize it with the database, application and version. Read the database from the `BUGSPLAT_DATABASE` environment variable, which the app and the `symbol-upload` tool share, so the name stays out of the repository when that fits the project. Add symbol upload to the build or CI as the guide shows, using the same application name and version the app reports.
 
+Adding the upload step to the build is a code change. Running an upload yourself sends the application's symbol files to BugSplat: before you do, tell the developer which files will go to which database, and ask.
+
 ## 5. Confirm a crash arrived
 
-Make the app crash as the platform page's verification step describes. If BugSplat's MCP tools are connected (`list-reports`), list the database's newest reports and find the one whose application, version and crash time match the test; otherwise use the REST API steps in the guide. If the top of its stack is a module and an offset instead of function names, the symbols for that version are missing or don't match the build.
+A test crash sends a crash report from this machine to the developer's BugSplat database. Say so and ask before you trigger it. Then make the app crash as the platform page's verification step describes. If BugSplat's MCP tools are connected (`list-reports`), list the database's newest reports and find the one whose application, version and crash time match the test; otherwise use the REST API steps in the guide. If the top of its stack is a module and an offset instead of function names, the symbols for that version are missing or don't match the build.
 
 Tell the developer what you changed, what still needs their action (secrets in CI, turning off any test-only settings), and how to open the crash in BugSplat.
