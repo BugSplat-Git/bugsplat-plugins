@@ -15,6 +15,18 @@ You sign in with your BugSplat account, and the agent has the access you have in
 
 `https://api.bugsplat.com/mcp`, described at https://docs.bugsplat.com/api-reference/mcp-server. Sign-in is OAuth in your browser; the plugin stores no credentials.
 
+## Data
+
+The plugin stores nothing. Its tools return crash data from your own BugSplat databases with your own permissions. A crash report can include a user name, an email address and an IP address when your application sends them, along with user-written descriptions, custom attributes and attachments.
+
+The BugSplat MCP server is the plugin's only connector. Three skills also send data to other services, each after asking you:
+
+- **`/bugsplat:fix`** pushes a branch and opens a pull request on your git host, such as GitHub or GitLab. The pull request's description links the BugSplat crash group and gives its crash and user counts.
+- **`/bugsplat:symbols`** uploads the symbol files you choose to BugSplat with the BugSplat CLI, and asks BugSplat to process a crash report again.
+- **`/bugsplat:integrate`** has your application send a test crash to BugSplat, and uploads the application's symbol files to BugSplat.
+
+`/bugsplat:triage` uses only the MCP server. The skills also download BugSplat documentation from docs.bugsplat.com, the BugSplat CLI from npm, and BugSplat SDKs from your platform's package registry. No skill sends data to any other service.
+
 ## License
 
 MIT
