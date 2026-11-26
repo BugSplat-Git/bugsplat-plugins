@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "bugsplat",
+  "description": "BugSplat plugins for coding agents",
+  "owner": {
+    "name": "BugSplat",
+    "email": "support@bugsplat.com"
+  },
+  "plugins": [
+    {
+      "name": "bugsplat",
+      "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, decide which crash to fix next, fix crashes from your BugSplat databases, and find and upload missing symbol files.",
+      "category": "development",
+      "source": "./plugins/bugsplat",
+      "homepage": "https://docs.bugsplat.com/api-reference/mcp-server"
+    }
+  ]
+}

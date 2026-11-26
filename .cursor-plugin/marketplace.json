@@ -1,0 +1,17 @@
+{
+  "name": "bugsplat",
+  "owner": {
+    "name": "BugSplat",
+    "email": "support@bugsplat.com"
+  },
+  "metadata": {
+    "description": "BugSplat plugins for coding agents"
+  },
+  "plugins": [
+    {
+      "name": "bugsplat",
+      "source": "plugins/bugsplat",
+      "description": "Connect BugSplat's hosted MCP server, add BugSplat crash reporting to an app, decide which crash to fix next, fix crashes from your BugSplat databases, and find and upload missing symbol files."
+    }
+  ]
+}
