@@ -1,7 +1,7 @@
 ---
 name: fix
 description: Fix a crash reported to BugSplat. Picks a crash group (or takes one you name), reads its crash reports and call stack through the BugSplat MCP server, finds the code in this repository, fixes it, opens a pull request, and offers to mark the crash group fixed. Use when the user asks to fix a BugSplat crash or a crash group. To decide which crash to fix, use the triage skill.
-argument-hint: "[crash group id | crash id | BugSplat link | application and version]"
+argument-hint: "[crash group id | crash id | BugSplat link | application and version] [database]"
 ---
 
 # Fix a BugSplat crash
@@ -11,6 +11,8 @@ The user asked: $ARGUMENTS
 You have BugSplat's MCP tools (`list-databases`, `list-groups`, `get-group`, `list-reports`, `get-report`, `list-versions`, `list-symbols`, `reprocess-report`, `create-defect`, `add-defect-link`, `set-group-status`). If they aren't available, tell the user to connect the BugSplat server and sign in, with the steps for the client you are running in, and stop: in Claude Code, run `/mcp` and select BugSplat; in Codex, run `codex mcp login bugsplat`; in Cursor, open **Settings > Tools & MCP** and click **Connect** next to BugSplat.
 
 ## 1. Pick the crash group
+
+If the user named a database, use it for every call below.
 
 - A crash group id, or a `app.bugsplat.com` link with a group: call `get-group` with that `stackKeyId`.
 - A crash id, or a link to one crash: call `get-report`, then `get-group` for its crash group.
