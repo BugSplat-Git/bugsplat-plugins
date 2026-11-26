@@ -19,9 +19,9 @@ You sign in with your BugSplat account, and the agent has the access you have in
 
 The plugin has no data store of its own. Its tools return crash data from your own BugSplat databases with your own permissions. A crash report can include a user name, an email address and an IP address when your application sends them, along with user-written descriptions, custom attributes and attachments.
 
-One skill writes crash data to your machine: when a call stack isn't enough, `/bugsplat:fix` can download a crash's archive (the minidump, logs and other attachments your application uploaded) into a temporary folder outside your repository. It deletes the folder when it has finished with it.
+One skill writes crash data to your machine: when a call stack isn't enough, `/bugsplat:fix` can download a crash's archive (the minidump, logs and other attachments your application uploaded) into a temporary folder outside your repository. The skill tells the agent to delete the folder when it has finished with it.
 
-The BugSplat MCP server is the plugin's only connector. The skills also send data to these services, each after asking you:
+The BugSplat MCP server is the plugin's only connector. The skills can also send data to the services below. Each skill tells the agent to ask you first; whether the agent stops to ask is decided by your client's permission settings, not by the plugin.
 
 - **`/bugsplat:fix`** pushes a branch and opens a pull request on your git host, such as GitHub or GitLab. The pull request's description links the BugSplat crash group and gives its crash and user counts.
 - **`/bugsplat:fix`** and **`/bugsplat:triage`** can file a crash group as a defect, or link it to an existing one, in the issue tracker connected to your BugSplat database. The request goes through the MCP server, and BugSplat sends the crash group's details and your notes to that tracker.
